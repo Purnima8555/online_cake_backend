@@ -16,7 +16,7 @@ public class OrderBy {
     private Item item;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="user_id",referencedColumnName = "id")
     private User user;
 
     @Column(name = "quantity", nullable = false)

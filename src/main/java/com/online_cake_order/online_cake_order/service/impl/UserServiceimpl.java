@@ -1,6 +1,7 @@
 
 package com.online_cake_order.online_cake_order.service.impl;
 
+import com.online_cake_order.online_cake_order.config.PasswordEncoderUtil;
 import com.online_cake_order.online_cake_order.dto.UserDto;
 import com.online_cake_order.online_cake_order.entity.User;
 import com.online_cake_order.online_cake_order.repository.UserRepository;
@@ -28,7 +29,7 @@ public class UserServiceimpl implements UserService {
         user.setEmail(userDto.getEmail());
         user.setFullName(userDto.getFullName());
         user.setMobileNo(userDto.getMobileNo());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(PasswordEncoderUtil.getInstance().encode(userDto.getPassword()));
 
         userRepository.save(user);
 
