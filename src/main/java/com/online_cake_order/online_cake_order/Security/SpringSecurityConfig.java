@@ -31,7 +31,7 @@ public class SpringSecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
@@ -44,6 +44,8 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/authenticate")
                 .permitAll()
+                .requestMatchers("/Item/**")
+                .hasAuthority("admin")
                 .anyRequest()
                 .authenticated()
                 .and()
