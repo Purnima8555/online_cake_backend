@@ -1,23 +1,18 @@
 package com.online_cake_order.online_cake_order.dto;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDto {
 
-    @NotNull
-    private Long item_id;
+    private Integer id;
+
 
     @NotNull
-    private  Integer user_id;
-
-    @NotNull
-    private Integer quantity;
+    private String orderDetail;
 }
